@@ -4,6 +4,9 @@ import 'package:sqflite/sqflite.dart';
 
 part 'database.g.dart';
 
+const String menuTable = 'menu';
+const String ingredientsTable = 'ingredients';
+
 @riverpod
 Database database(DatabaseRef ref) => throw UnimplementedError();
 
@@ -20,7 +23,7 @@ Future<Database> getDatabase() async {
 
 void _createTables(Database db) async {
   await db.execute('''
-CREATE TABLE menu(
+CREATE TABLE $menuTable(
   id INTEGER PRIMARY KEY,
   day TEXT CHECK(day IN ('sunday','monday','tuesday', 'wednesday','thursday','friday','saturday')) NOT NULL,
   name TEXT
@@ -28,7 +31,7 @@ CREATE TABLE menu(
   ''');
   await db.execute(
     '''
-CREATE TABLE ingredients(
+CREATE TABLE $ingredientsTable(
   id INTEGER PRIMARY KEY,
   value TEXT
   );

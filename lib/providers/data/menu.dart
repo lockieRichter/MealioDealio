@@ -1,34 +1,18 @@
 import 'package:mealio_dealio/model/weekday.dart';
+import 'package:mealio_dealio/providers/data/menu_repo.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:sqflite/sqflite.dart';
-
-import 'database.dart';
 
 part 'menu.g.dart';
 
 @riverpod
 class Menu extends _$Menu {
   @override
-  Future<Map<Weekday, String>> build() async {
-    final database = ref.read(databaseProvider);
-
-    final maps = await database.query("menu");
-    final menu = {
-      for (var map in maps)
-        Weekday.values.byName(map["day"] as String): map["name"] as String
-    };
-
-    return menu;
+  Future<Map<Weekday, String>> build() {
+    return ref.read(menuRepositoryProvider.notifier).menu;
   }
 
-  void updateValue(Weekday weekday, String value) async {
+  void updateValue(Weekday weekday, String value) {
     state.whenData((data) => data[weekday] = value);
-
-    final database = ref.read(databaseProvider);
-    await database.insert(
-      'menu',
-      {'day': weekday.name, 'name': value},
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+    ref.read(menuRepositoryProvider.notifier).updateValue(weekday, value);
   }
 }
