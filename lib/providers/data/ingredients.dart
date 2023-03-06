@@ -1,4 +1,4 @@
-import 'package:mealio_dealio/providers/database.dart';
+import 'package:mealio_dealio/providers/data/database.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -27,7 +27,11 @@ class Ingredients extends _$Ingredients {
     final database = ref.read(databaseProvider);
     await database.insert(
       'ingredients',
-      {'value': value},
+      {
+        // For now we only want to store one row of data.
+        'id': '1',
+        'value': value,
+      },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }

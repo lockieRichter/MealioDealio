@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/nav_page.dart';
+import 'package:mealio_dealio/providers/ui/nav_page.dart';
 
 class MealioNavBar extends ConsumerWidget {
   const MealioNavBar({super.key});

@@ -1,7 +1,8 @@
 import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/database.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
+
+import 'database.dart';
 
 part 'menu.g.dart';
 

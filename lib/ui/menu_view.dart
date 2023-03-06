@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/menu.dart';
+import 'package:mealio_dealio/providers/data/menu.dart';
 import 'package:mealio_dealio/ui/menu_row_item.dart';
 
 class MenuView extends ConsumerWidget {

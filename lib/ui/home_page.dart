@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/nav_page.dart';
+import 'package:mealio_dealio/providers/ui/nav_page.dart';
 import 'package:mealio_dealio/ui/ingredients_view.dart';
 import 'package:mealio_dealio/ui/menu_view.dart';
 import 'package:mealio_dealio/ui/nav_bar.dart';

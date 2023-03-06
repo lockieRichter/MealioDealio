@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/mealio_theme.dart';
+import 'package:mealio_dealio/providers/ui/mealio_theme.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/ingredients.dart';
+import 'package:mealio_dealio/providers/data/ingredients.dart';
 
 class IngredientsView extends ConsumerWidget {
   const IngredientsView({super.key});

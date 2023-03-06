@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mealio_dealio/providers/shared_prefs.dart';
+import 'package:mealio_dealio/providers/data/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'mealio_theme.g.dart';
