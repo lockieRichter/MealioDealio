@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'menu_repository.dart';
+part of 'shared_prefs.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$menuRepositoryHash() => r'c5d503bed4e1a4c08f01add8450fb504d0c0d320';
+String _$sharedPreferencesHash() => r'0924fb848ccdeb837f448bcb2b685bf4104dbd40';
 
-/// See also [MenuRepository].
-@ProviderFor(MenuRepository)
-final menuRepositoryProvider =
-    AutoDisposeAsyncNotifierProvider<MenuRepository, Database>.internal(
-  MenuRepository.new,
-  name: r'menuRepositoryProvider',
+/// See also [sharedPreferences].
+@ProviderFor(sharedPreferences)
+final sharedPreferencesProvider =
+    AutoDisposeProvider<SharedPreferences>.internal(
+  sharedPreferences,
+  name: r'sharedPreferencesProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$menuRepositoryHash,
+      : _$sharedPreferencesHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$MenuRepository = AutoDisposeAsyncNotifier<Database>;
+typedef SharedPreferencesRef = AutoDisposeProviderRef<SharedPreferences>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

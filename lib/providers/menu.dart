@@ -1,5 +1,5 @@
-import 'package:mealio_dealio/providers/menu_repository.dart';
-import 'package:mealio_dealio/providers/weekday.dart';
+import 'package:mealio_dealio/model/weekday.dart';
+import 'package:mealio_dealio/providers/database.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -9,7 +9,7 @@ part 'menu.g.dart';
 class Menu extends _$Menu {
   @override
   Future<Map<Weekday, String>> build() async {
-    final database = await ref.read(menuRepositoryProvider.future);
+    final database = ref.read(databaseProvider);
 
     final maps = await database.query("menu");
     final menu = {
@@ -23,7 +23,7 @@ class Menu extends _$Menu {
   void updateValue(Weekday weekday, String value) async {
     state.whenData((data) => data[weekday] = value);
 
-    final database = await ref.read(menuRepositoryProvider.future);
+    final database = ref.read(databaseProvider);
     await database.insert(
       'menu',
       {'day': weekday.name, 'name': value},

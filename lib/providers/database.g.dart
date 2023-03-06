@@ -1,24 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'menu.dart';
+part of 'database.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$menuHash() => r'f9eef9896639fb444eb1e3969686b9d248a02911';
+String _$databaseHash() => r'ecf622ef691dde4bb5cee84cd0e9953d91f0c93b';
 
-/// See also [Menu].
-@ProviderFor(Menu)
-final menuProvider =
-    AutoDisposeAsyncNotifierProvider<Menu, Map<Weekday, String>>.internal(
-  Menu.new,
-  name: r'menuProvider',
+/// See also [database].
+@ProviderFor(database)
+final databaseProvider = AutoDisposeProvider<Database>.internal(
+  database,
+  name: r'databaseProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$menuHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$databaseHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Menu = AutoDisposeAsyncNotifier<Map<Weekday, String>>;
+typedef DatabaseRef = AutoDisposeProviderRef<Database>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
