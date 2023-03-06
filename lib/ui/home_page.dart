@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/menu.dart';
-import 'package:mealio_dealio/ui/menu_row_item.dart';
+import 'package:mealio_dealio/providers/nav_page.dart';
+import 'package:mealio_dealio/ui/ingredients_view.dart';
+import 'package:mealio_dealio/ui/menu_view.dart';
+import 'package:mealio_dealio/ui/nav_bar.dart';
 import 'package:mealio_dealio/ui/settings_page.dart';
 
 class HomePage extends ConsumerWidget {
+  final List<Widget> pages = const [MenuView(), IngredientsView()];
+
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final selectedIndex = ref.watch(selectedBottomNavIndexProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Menu'),
@@ -18,39 +23,23 @@ class HomePage extends ConsumerWidget {
             key: const ValueKey('settings_button'),
             icon: const Icon(Icons.settings),
             onPressed: () {
-              Navigator.of(context).push(_createRoute());
+              Navigator.of(context).push(_navigateToSettings());
             },
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
-        child: ref.watch(menuProvider).when(
-              data: (menu) => ListView.separated(
-                itemCount: Weekday.values.length,
-                itemBuilder: (context, index) {
-                  final day = Weekday.values[index];
-                  return MenuRowItem(
-                      key: ValueKey(
-                        'MenuRowItem-${day.name}',
-                      ),
-                      day: day,
-                      initialValue: menu[day]);
-                },
-                separatorBuilder: (context, index) => const Divider(),
-              ),
-              loading: () => const Center(
-                child: CircularProgressIndicator(
-                  key: ValueKey('loading_state'),
-                ),
-              ),
-              error: (error, stack) => Text(error.toString()),
-            ),
+        child: pages[selectedIndex],
+      ),
+      bottomNavigationBar: const SizedBox(
+        height: 104,
+        child: MealioNavBar(),
       ),
     );
   }
 
-  Route _createRoute() {
+  Route _navigateToSettings() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const SettingsPage(),

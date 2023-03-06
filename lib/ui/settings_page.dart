@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/theme.dart';
+import 'package:mealio_dealio/providers/mealio_theme.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(themeProvider);
+    final theme = ref.watch(mealioThemeProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -28,10 +28,13 @@ class SettingsPage extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text("Change theme"),
+            Text(
+              "Change theme",
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
             IconButton(
               onPressed: () {
-                ref.read(themeProvider.notifier).setTheme(
+                ref.read(mealioThemeProvider.notifier).setTheme(
                     theme == ThemeMode.light
                         ? ThemeMode.dark
                         : ThemeMode.light);

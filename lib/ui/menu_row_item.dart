@@ -8,14 +8,21 @@ class MenuRowItem extends ConsumerWidget {
   final String? initialValue;
   final Weekday day;
 
-  const MenuRowItem({super.key, required this.day, required this.initialValue});
+  const MenuRowItem({
+    super.key,
+    required this.day,
+    required this.initialValue,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         Expanded(
-          child: Text(day.name.capitalize()),
+          child: Text(
+            day.name.capitalize(),
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ),
         Flexible(
           flex: 3,

@@ -11,17 +11,27 @@ Future<Database> getDatabase() async {
   final database = openDatabase(
     join(await getDatabasesPath(), 'database.db'),
     onCreate: (db, version) {
-      return db.execute(
-        """
-CREATE TABLE menu(
-  id INTEGER PRIMARY KEY,
-  day TEXT CHECK(day IN ('sunday','monday','tuesday', 'wednesday','thursday','friday','saturday')) NOT NULL,
-  name TEXT
-  )
-  """,
-      );
+      _createTables(db);
     },
     version: 1,
   );
   return database;
+}
+
+void _createTables(Database db) async {
+  await db.execute('''
+CREATE TABLE menu(
+  id INTEGER PRIMARY KEY,
+  day TEXT CHECK(day IN ('sunday','monday','tuesday', 'wednesday','thursday','friday','saturday')) NOT NULL,
+  name TEXT
+  );
+  ''');
+  await db.execute(
+    '''
+CREATE TABLE ingredients(
+  id INTEGER PRIMARY KEY,
+  value TEXT
+  );
+  ''',
+  );
 }

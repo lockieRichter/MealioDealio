@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mealio_dealio/providers/shared_prefs.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'theme.g.dart';
+part 'mealio_theme.g.dart';
 
 @riverpod
-class Theme extends _$Theme {
+class MealioTheme extends _$MealioTheme {
   @override
   ThemeMode build() {
     final sharedPrefs = ref.read(sharedPreferencesProvider);
