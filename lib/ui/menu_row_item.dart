@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/data/menu.dart';
+import 'package:mealio_dealio/providers/repo/menu_repo.dart';
 import 'package:mealio_dealio/util/string_extensions.dart';
 
 class MenuRowItem extends ConsumerWidget {
@@ -35,7 +35,7 @@ class MenuRowItem extends ConsumerWidget {
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (value) =>
-                    ref.read(menuProvider.notifier).updateValue(day, value),
+                    ref.read(menuRepoProvider).updateMenuItem(day, value),
               );
             },
           ),
