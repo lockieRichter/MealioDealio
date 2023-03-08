@@ -4,10 +4,15 @@ import 'package:mealio_dealio/providers/ui/nav_page.dart';
 import 'package:mealio_dealio/ui/ingredients_view.dart';
 import 'package:mealio_dealio/ui/menu_view.dart';
 import 'package:mealio_dealio/ui/nav_bar.dart';
+import 'package:mealio_dealio/ui/recipes_view.dart';
 import 'package:mealio_dealio/ui/settings_page.dart';
 
 class HomePage extends ConsumerWidget {
-  final List<Widget> pages = const [MenuView(), IngredientsView()];
+  final List<Widget> pages = const [
+    MenuView(),
+    IngredientsView(),
+    RecipesView(),
+  ];
 
   const HomePage({super.key});
 

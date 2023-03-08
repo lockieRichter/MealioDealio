@@ -11,12 +11,16 @@ class MealioNavBar extends ConsumerWidget {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.menu_book),
+          icon: Icon(Icons.restaurant_menu),
           label: 'Menu',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.local_grocery_store_outlined),
           label: 'Ingredients',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.menu_book),
+          label: 'Recipes',
         ),
       ],
       currentIndex: selectedIndex,
