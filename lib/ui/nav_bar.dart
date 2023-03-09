@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealio_dealio/providers/ui/nav_page.dart';
 
 class MealioNavBar extends ConsumerWidget {
-  const MealioNavBar({super.key});
+  final void Function(int index) onTap;
+
+  const MealioNavBar({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,6 +27,7 @@ class MealioNavBar extends ConsumerWidget {
       ],
       currentIndex: selectedIndex,
       onTap: (index) {
+        onTap(index);
         ref.read(selectedBottomNavIndexProvider.notifier).setIndex(index);
       },
     );
