@@ -6,6 +6,7 @@ part 'database.g.dart';
 
 const String menuTable = 'menu';
 const String ingredientsTable = 'ingredients';
+const String recipesTable = 'recipes';
 
 @riverpod
 Database database(DatabaseRef ref) => throw UnimplementedError();
@@ -32,6 +33,14 @@ CREATE TABLE $menuTable(
   await db.execute(
     '''
 CREATE TABLE $ingredientsTable(
+  id INTEGER PRIMARY KEY,
+  value TEXT
+  );
+  ''',
+  );
+  await db.execute(
+    '''
+CREATE TABLE $recipesTable(
   id INTEGER PRIMARY KEY,
   value TEXT
   );
