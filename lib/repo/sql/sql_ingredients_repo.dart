@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 class SqlIngredientsRepo extends IngredientsRepo {
   final Database _database;
 
-  SqlIngredientsRepo({
+  const SqlIngredientsRepo({
     required Database database,
   }) : _database = database;
 

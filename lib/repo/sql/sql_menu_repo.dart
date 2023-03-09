@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 class SqlMenuRepo extends MenuRepo {
   final Database _database;
 
-  SqlMenuRepo({
+  const SqlMenuRepo({
     required Database database,
   }) : _database = database;
 
