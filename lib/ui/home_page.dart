@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/ui/nav_page.dart';
 import 'package:mealio_dealio/ui/ingredients_view.dart';
 import 'package:mealio_dealio/ui/menu_view.dart';
 import 'package:mealio_dealio/ui/nav_bar.dart';
+import 'package:mealio_dealio/ui/recipes_view.dart';
 import 'package:mealio_dealio/ui/settings_page.dart';
 
 class HomePage extends ConsumerWidget {
-  final List<Widget> pages = const [MenuView(), IngredientsView()];
-
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selectedIndex = ref.watch(selectedBottomNavIndexProvider);
+    final pageController = PageController(
+      initialPage: 0,
+      keepPage: true,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -30,11 +31,23 @@ class HomePage extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 8, right: 8, top: 8),
-        child: pages[selectedIndex],
+        child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageController,
+          children: const [
+            MenuView(),
+            IngredientsView(),
+            RecipesView(),
+          ],
+        ),
       ),
-      bottomNavigationBar: const SizedBox(
+      bottomNavigationBar: SizedBox(
         height: 104,
-        child: MealioNavBar(),
+        child: MealioNavBar(
+          onTap: (index) => pageController.animateToPage(index,
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.linear),
+        ),
       ),
     );
   }

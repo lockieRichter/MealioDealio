@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 class SqlMenuRepo extends MenuRepo {
   final Database _database;
 
-  SqlMenuRepo({
+  const SqlMenuRepo({
     required Database database,
   }) : _database = database;
 
@@ -21,10 +21,10 @@ class SqlMenuRepo extends MenuRepo {
 
   @override
   Future<Map<Weekday, String>> getMenu() async {
-    final maps = await _database.query(menuTable);
+    final rows = await _database.query(menuTable);
     final menu = {
-      for (var map in maps)
-        Weekday.values.byName(map["day"] as String): map["name"] as String
+      for (var row in rows)
+        Weekday.values.byName(row["day"] as String): row["name"] as String
     };
 
     return menu;
