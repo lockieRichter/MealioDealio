@@ -1,5 +1,5 @@
 import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/repo/menu_repo.dart';
+import 'package:mealio_dealio/providers/data/database.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'menu.g.dart';

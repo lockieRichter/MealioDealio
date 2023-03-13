@@ -16,6 +16,8 @@ dependencies:
   sqflite: ^2.2.5
   path: ^1.8.2
   shared_preferences: ^2.0.18
+  freezed_annotation: ^2.2.0
+  json_annotation: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +27,8 @@ dev_dependencies:
   riverpod_generator: ^2.0.0
   build_runner: ^2.3.3
   riverpod_lint: ^1.1.2
+  freezed: ^2.3.2
+  json_serializable: ^6.6.1
 
 flutter:
   uses-material-design: true

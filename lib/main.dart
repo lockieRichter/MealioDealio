@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealio_dealio/providers/repo/database.dart';
-import 'package:mealio_dealio/providers/repo/shared_prefs.dart';
+import 'package:mealio_dealio/providers/data/database.dart';
 import 'package:mealio_dealio/providers/ui/mealio_theme.dart';
 import 'package:mealio_dealio/ui/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';

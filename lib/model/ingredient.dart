@@ -1,13 +1,16 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mealio_dealio/model/ingredient_category.dart';
 
-class Ingredient {
-  final IngredientCategory category;
-  final String name;
-  final String amount;
+part 'ingredient.freezed.dart';
+part 'ingredient.g.dart';
 
-  Ingredient({
-    required this.category,
-    required this.name,
-    required this.amount,
-  });
+@freezed
+class Ingredient with _$Ingredient {
+  const factory Ingredient({
+    required IngredientCategory category,
+    required String name,
+  }) = _Ingredient;
+
+  factory Ingredient.fromJson(Map<String, Object?> json) =>
+      _$IngredientFromJson(json);
 }

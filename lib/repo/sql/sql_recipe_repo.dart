@@ -1,4 +1,4 @@
-import 'package:mealio_dealio/providers/repo/database.dart';
+import 'package:mealio_dealio/providers/data/database.dart';
 import 'package:mealio_dealio/repo/abstract/recipe_repo.dart';
 import 'package:sqflite/sqflite.dart';
 

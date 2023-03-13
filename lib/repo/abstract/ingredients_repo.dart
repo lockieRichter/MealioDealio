@@ -1,7 +1,7 @@
+import 'package:mealio_dealio/model/ingredient.dart';
+
 abstract class IngredientsRepo {
   const IngredientsRepo();
 
-  Future<void> updateIngredients(String ingredients);
-
-  Future<String> getIngredients();
+  Future<List<Ingredient>> getAllIngredients();
 }

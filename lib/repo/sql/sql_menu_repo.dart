@@ -1,5 +1,5 @@
 import 'package:mealio_dealio/model/weekday.dart';
-import 'package:mealio_dealio/providers/repo/database.dart';
+import 'package:mealio_dealio/providers/data/database.dart';
 import 'package:mealio_dealio/repo/abstract/menu_repo.dart';
 import 'package:sqflite/sqflite.dart';
 
